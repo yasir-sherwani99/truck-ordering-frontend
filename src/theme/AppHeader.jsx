@@ -46,9 +46,9 @@ const AppHeader = () => {
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav  ">
                                 <NavItem link="/" text="Home" />
-                                <NavItem link="#" text="Services" />
+                                <NavItem link="/services" text="Services" />
                                 <NavItem link="#" text="About" />
-                                <NavItem link="#" text="Contact us" />
+                                <NavItem link="/freight-quote" text="Freight Quote" />
                                 <NavItem link="#" text="Login" icon="fa fa-user mr-1" />
                                 <form className="form-inline">
                                     <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">

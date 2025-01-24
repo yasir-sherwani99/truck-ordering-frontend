@@ -6,7 +6,7 @@ import Service from '../../../components/home/Service';
 import Contact from '../../../components/home/Contact';
 import Client from '../../../components/home/Client';
 
-const Home = () => {
+const HomePage = () => {
     return (
         <AppLayout>
             <About />
@@ -17,4 +17,4 @@ const Home = () => {
     );
 };
 
-export default Home;
+export default HomePage;

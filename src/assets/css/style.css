@@ -494,7 +494,7 @@ a:focus {
   text-transform: uppercase;
 }
 
-.contact_section .form_container input {
+.contact_section .form_container input, .contact_section .form_container textarea {
   width: 100%;
   border: none;
   height: 50px;
@@ -504,6 +504,10 @@ a:focus {
   color: #101010;
   -webkit-box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+}
+
+.contact_section .form_container textarea {
+  padding: 15px !important;
 }
 
 .contact_section .form_container input::-webkit-input-placeholder {
@@ -522,8 +526,8 @@ a:focus {
   color: #344d77;
 }
 
-.contact_section .form_container input.message-box {
-  height: 120px;
+.contact_section .form_container .message-box {
+  height: 120px !important;
 }
 
 .contact_section .form_container button {

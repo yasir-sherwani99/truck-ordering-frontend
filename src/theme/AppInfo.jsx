@@ -69,7 +69,7 @@ const AppInfo = () => {
                     </div>
                     <div className="col-md-6 col-lg-3 info-col">
                         <div className="map_container">
-                            <div class="map">
+                            <div className="map">
                                 <div id="googleMap"></div>
                             </div>
                         </div>
