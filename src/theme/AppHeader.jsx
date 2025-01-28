@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 
 import NavItem from '../components/common/NavItem';
 import ContactItem from '../components/common/ContactItem';
+import { useAuth } from '../context/AuthContext';
 
 const AppHeader = () => {
+
+    const { authData } = useAuth();
+
     return (
         <header className="header_section">
             <div className="header_top">
@@ -48,8 +52,13 @@ const AppHeader = () => {
                                 <NavItem link="/" text="Home" />
                                 <NavItem link="/services" text="Services" />
                                 <NavItem link="#" text="About" />
-                                <NavItem link="/freight-quote" text="Freight Quote" />
-                                <NavItem link="#" text="Login" icon="fa fa-user mr-1" />
+                                <NavItem link="/book-truck" text="Book a Truck" />
+                                {!authData.isAuthenticated && (
+                                    <NavItem link="/login" text="Login" icon="fa fa-user mr-1" />
+                                )}
+                                {authData.isAuthenticated && (
+                                    <NavItem link="/dashboard" text="Dashboard" icon="fa fa-dashboard mr-1" />
+                                )}
                                 <form className="form-inline">
                                     <button className="btn  my-2 my-sm-0 nav_search-btn" type="submit">
                                         <i className="fa fa-search" aria-hidden="true"></i>

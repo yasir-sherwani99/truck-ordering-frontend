@@ -1,5 +1,6 @@
 import React from 'react';
-// import AppTheme from '../../../theme/AppTHeme';
+import { Helmet } from 'react-helmet';
+
 import AppLayout from '../../../theme/AppLayout';
 import About from '../../../components/home/About';
 import Service from '../../../components/home/Service';
@@ -9,6 +10,7 @@ import Client from '../../../components/home/Client';
 const HomePage = () => {
     return (
         <AppLayout>
+            <Helmet title="Truck Ordering App" />
             <About />
             <Service />
             <Contact />

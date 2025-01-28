@@ -1,17 +1,17 @@
 import React from 'react';
 
+import Heading from '../common/Heading';
+
 import client1Img from '../../assets/images/client-1.jpg';
 import client2Img from '../../assets/images/client-2.jpg';
 
 const Client = () => {
     return (
         <section className="client_section layout_padding-bottom">
-            <div className="container">
-                <div className="heading_container">
-                    <h2>
-                        What Says Our Client
-                    </h2>
-                </div>
+            <div className="container">                
+                <Heading
+                    text="What Says Our Client" 
+                />
                 <div className="client_container">
                     <div className="carousel-wrap ">
                         <div className="owl-carousel">

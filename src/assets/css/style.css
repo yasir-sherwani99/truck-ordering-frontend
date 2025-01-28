@@ -481,20 +481,20 @@ a:focus {
   color: #ff7241;
 }
 
-.contact_section {
+/* .contact_section_2 {
   position: relative;
   padding-bottom: 90px;
 }
 
-.contact_section .heading_container {
+.contact_section_2 .heading_container {
   margin-bottom: 25px;
 }
 
-.contact_section .heading_container h2 {
+.contact_section_2 .heading_container h2 {
   text-transform: uppercase;
 }
 
-.contact_section .form_container input, .contact_section .form_container textarea {
+.contact_section_2 .form_container input, .contact_section_2 .form_container textarea {
   width: 100%;
   border: none;
   height: 50px;
@@ -506,31 +506,31 @@ a:focus {
           box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
 }
 
-.contact_section .form_container textarea {
+.contact_section_2 .form_container textarea {
   padding: 15px !important;
 }
 
-.contact_section .form_container input::-webkit-input-placeholder {
+.contact_section_2 .form_container input::-webkit-input-placeholder {
   color: #344d77;
 }
 
-.contact_section .form_container input:-ms-input-placeholder {
+.contact_section_2 .form_container input:-ms-input-placeholder {
   color: #344d77;
 }
 
-.contact_section .form_container input::-ms-input-placeholder {
+.contact_section_2 .form_container input::-ms-input-placeholder {
   color: #344d77;
 }
 
-.contact_section .form_container input::placeholder {
+.contact_section_2 .form_container input::placeholder {
   color: #344d77;
 }
 
-.contact_section .form_container .message-box {
+.contact_section_2 .form_container .message-box {
   height: 120px !important;
 }
 
-.contact_section .form_container button {
+.contact_section_2 .form_container button {
   border: none;
   text-transform: uppercase;
   display: inline-block;
@@ -543,24 +543,24 @@ a:focus {
   border: none;
 }
 
-.contact_section .form_container button:hover {
+.contact_section_2 .form_container button:hover {
   background-color: #f43f00;
 }
-
-.contact_section .why_box .box {
+*/
+.contact_section_2 .why_box .box {
   margin-top: 15px;
 }
 
-.contact_section .why_box .img-box {
+.contact_section_2 .why_box .img-box {
   width: 45px;
   margin-bottom: 10px;
 }
 
-.contact_section .why_box .img-box img {
+.contact_section_2 .why_box .img-box img {
   width: 100%;
 }
 
-.contact_section .why_box h5 {
+.contact_section_2 .why_box h5 {
   font-weight: 700;
 }
 
