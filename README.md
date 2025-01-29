@@ -39,23 +39,23 @@ npm run dev
 
 The folder structure of this project is as follows:
 
-├── public/
-│   ├── vite.svg
-├── src/
-│   ├── assets/                  # Static files (images, etc.)
-│   ├── components/              # Reusable UI components (buttons, form inputs, etc.)
-│   ├── context/                 # React Context (if used for state management)
-│   ├── lib/                     # Axios functions
-│   ├── pages/                   # React components for each page (Home, Booking, Profile)
-│   ├── services/                # API services
-│   ├── theme/                   # Theme Layout
-│   ├── App.jsx                  # Main app components
-│   ├── main.jsx                 # Entry point for React
-│   ├── App.css                  # Global styles
-├── .env                         # Environment variables
-├── package.json                 # Project dependencies and scripts
-├── README.md                    # Project documentation (this file)
-└── .gitignore                   # Git ignore file
+├── public/<br />
+│   ├── vite.svg<br />
+├── src/<br />
+│   ├── assets/                  # Static files (images, etc.)<br />
+│   ├── components/              # Reusable UI components (buttons, form inputs, etc.)<br />
+│   ├── context/                 # React Context (if used for state management)<br />
+│   ├── lib/                     # Axios functions<br />
+│   ├── pages/                   # React components for each page (Home, Booking, Profile)<br />
+│   ├── services/                # API services<br />
+│   ├── theme/                   # Theme Layout<br />
+│   ├── App.jsx                  # Main app components<br />
+│   ├── main.jsx                 # Entry point for React<br />
+│   ├── App.css                  # Global styles<br />
+├── .env                         # Environment variables<br />
+├── package.json                 # Project dependencies and scripts<br />
+├── README.md                    # Project documentation (this file)<br />
+└── .gitignore                   # Git ignore file<br />
 
 ### API Integration:
 
