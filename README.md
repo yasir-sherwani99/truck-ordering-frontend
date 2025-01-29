@@ -42,7 +42,7 @@ The folder structure of this project is as follows:
 ├── public/<br />
 │   ├── vite.svg<br />
 ├── src/<br />
-│   ├── assets/                  # Static files (images, etc.)<br />
+│   ├── assets/ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;                 # Static files (images, etc.)<br />
 │   ├── components/              # Reusable UI components (buttons, form inputs, etc.)<br />
 │   ├── context/                 # React Context (if used for state management)<br />
 │   ├── lib/                     # Axios functions<br />
