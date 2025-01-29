@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { TextField, Button, FormHelperText, CircularProgress } from '@mui/material';
 import { Formik, Form } from 'formik';
@@ -16,11 +16,20 @@ const formValidationSchema = Yup.object().shape({
 const LoginForm = () => {
 
     const navigate = useNavigate();
+    const [submitted, setSubmitted] = useState(false);
     const { login, errors, setAuthErrors, clearAuthErrors } = useAuth();
+
+    useEffect(() => {
+        if(submitted) {
+            window.scroll(0, 0)
+        }
+    }, [submitted]);
 
     const handleFormSubmit = (values, formikBag) => {
 
         clearAuthErrors();
+        setSubmitted(false);
+
         const {setSubmitting, resetForm} = formikBag;
 
         const formData = new FormData();
@@ -38,6 +47,7 @@ const LoginForm = () => {
                 })
                 .catch((error) => {
                     setSubmitting(false)
+                    setSubmitted(true);
                     if(error.response && error.response.data.errors) {
                         setAuthErrors(error.response.data.errors)
                     } else {

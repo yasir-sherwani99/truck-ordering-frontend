@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 import { Navigate } from 'react-router-dom';
 
 import AppLayout from '../../../theme/AppLayout';
@@ -17,7 +16,6 @@ const RegisterPage = () => {
 
     return (
         <AppLayout>
-            <Helmet title="Truck Ordering | Register" />
             <section className="contact_section layout_padding">
                 <div className="container">
                     <div className="row justify-content-center">

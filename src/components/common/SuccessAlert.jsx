@@ -2,17 +2,17 @@ import React from 'react';
 
 import { useAuth } from '../../context/AuthContext';
 
-const ErrorValidationAlert = ({errors}) => {
+const SuccessAlert = ({msg}) => {
 
-    const { clearAuthErrors } = useAuth();
+    const { clearSuccessMsg } = useAuth();
 
     const handleClose = () => {
-        clearAuthErrors();
+        clearSuccessMsg();
     }
 
     return (
         <>
-            <div className="alert alert-danger" role="alert">
+            <div className="alert alert-success" role="alert">
                 <button 
                     type="button" 
                     className="close" 
@@ -22,15 +22,13 @@ const ErrorValidationAlert = ({errors}) => {
                 >
                     <span aria-hidden="true">&times;</span>
                 </button>
-                <h6 className="alert-heading font-weight-bold">Errors</h6>
+                <h6 className="alert-heading font-weight-bold">Well-done!</h6>
                 <ul>
-                    {Object.keys(errors).map((key, index) => (
-                        <li key={index}>{errors[key][0]}</li>
-                    ))}
+                    <li>{msg}</li>
                 </ul>
             </div>  
         </>
     );
 };
 
-export default ErrorValidationAlert;
+export default SuccessAlert;

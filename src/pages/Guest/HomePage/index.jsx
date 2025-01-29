@@ -1,5 +1,4 @@
 import React from 'react';
-import { Helmet } from 'react-helmet';
 
 import AppLayout from '../../../theme/AppLayout';
 import About from '../../../components/home/About';
@@ -10,7 +9,6 @@ import Client from '../../../components/home/Client';
 const HomePage = () => {
     return (
         <AppLayout>
-            <Helmet title="Truck Ordering App" />
             <About />
             <Service />
             <Contact />

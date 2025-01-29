@@ -17,6 +17,9 @@ const NavItem2 = (props) => {
                     <i className={`mr-2 ${props.icon}`}></i>
                 )} 
                 {props.text} {isActive && (<span className="sr-only">(current)</span>)}
+                {props.count && (
+                    <span className="badge badge-danger ml-2">{props.count}</span>
+                )}
             </Link>
         </li>
     );

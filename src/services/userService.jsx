@@ -11,12 +11,12 @@ const getAuthHeaders = () => {
     };
 };
 
-const storeTruckBooking = (data) => {
-    return http.post(API_URL + "booking", data);
+const getBookings = () => {
+    return http.get(API_URL + "bookings", { headers: getAuthHeaders() });
 }
 
-const guestService = {
-    storeTruckBooking
+const userService = {
+    getBookings
 }
 
-export default guestService;
+export default userService;

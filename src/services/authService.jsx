@@ -11,6 +11,15 @@ const getAuthHeaders = () => {
     };
 };
 
+const getAdminAuthHeaders = () => {
+    const token = JSON.parse(localStorage.getItem('admin_token')); 
+    return {
+        'Authorization': token ? `Bearer ${token}` : '',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+    };
+};
+
 const register = (formData) => {
     return http.post(API_URL + 'register', formData)
                 .then((response) => {
@@ -44,10 +53,34 @@ const logout = () => {
                 })
 }
 
+const adminlogin = (formData) => {
+    return http.post(API_URL + 'admin/login', formData)
+                .then((response) => {
+                    if(response.data.accessToken) {
+                        localStorage.setItem('admin_token', JSON.stringify(response.data.accessToken))
+                    }
+
+                    return response;
+                })
+}
+
+const adminlogout = () => {
+    return http.get(API_URL + 'admin/logout', { headers: getAdminAuthHeaders() })
+                .then((response) => {
+                    if(response.data.success) {
+                        localStorage.removeItem('admin_token')
+                    }
+
+                    return response;
+                })
+}
+
 const authService = {
     register,
     login,
-    logout
+    logout,
+    adminlogin,
+    adminlogout
 };
 
 export default authService;

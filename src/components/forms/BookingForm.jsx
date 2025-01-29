@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { TextField, FormControl, InputLabel, NativeSelect, InputBase, styled, Button, Icon, CircularProgress, FormHelperText } from '@mui/material';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -10,6 +10,7 @@ import * as Yup from 'yup';
 import { useAuth } from '../../context/AuthContext';
 import guestService from '../../services/guestService';
 import ErrorValidationAlert from '../common/ErrorValidationAlert';
+import SuccessAlert from '../common/SuccessAlert';
 
 const BootstrapInput = styled(InputBase)(({ theme }) => ({
     'label + &': {
@@ -86,11 +87,21 @@ const formValidationSchema = Yup.object().shape({
 
 const BookingForm = () => {
 
-    const { errors, setAuthErrors, clearAuthErrors } = useAuth();
+    const [submitted, setSubmitted] = useState(false);
+    const { errors, success, setAuthErrors, clearAuthErrors, setSuccessMsg, clearSuccessMsg } = useAuth();
+
+    useEffect(() => {
+        if(submitted) {
+            window.scroll(0, 0)
+        }
+    }, [submitted]);
 
     const handleFormSubmit = (values, formikBag) => {
-
+        
         clearAuthErrors();
+        clearSuccessMsg();
+        setSubmitted(false);
+    
         const {setSubmitting, resetForm} = formikBag;
 
         const formData = new FormData();
@@ -98,6 +109,7 @@ const BookingForm = () => {
         formData.append('last_name', values.last_name)
         formData.append('email', values.email)
         formData.append('phone', values.phone)
+        formData.append('company', values.company)
         formData.append('pickup_address', values.pickup_address)
         formData.append('delivery_address', values.delivery_address)
         formData.append('cargo_type', values.cargo_type)
@@ -111,9 +123,13 @@ const BookingForm = () => {
         guestService.storeTruckBooking(formData)
                 .then((res) => {
                     setSubmitting(false)
+                    resetForm(true)
+                    setSuccessMsg(res.data.message)
+                    setSubmitted(true)
                 })
                 .catch((error) => {
                     setSubmitting(false)
+                    setSubmitted(true)
                     if(error.response && error.response.data.errors) {
                         setAuthErrors(error.response.data.errors)
                     } else {
@@ -126,6 +142,10 @@ const BookingForm = () => {
         <>
             {errors && (
                 <ErrorValidationAlert errors={errors} />
+            )}
+
+            {success && (
+                <SuccessAlert msg={success} />  
             )}
 
             <Formik
@@ -200,7 +220,9 @@ const BookingForm = () => {
                                 //    required
                                     fullWidth
                                     size="small"  
-                                    {...formik.getFieldProps('phone')}
+                                    onChange={(e) => {
+                                        formik.setFieldValue('phone', e, true)
+                                    }}
                                 //    error={formik.errors.phone ? true : false}
                                 />  
                                 <FormHelperText error={true}>{formik.errors.phone}</FormHelperText>

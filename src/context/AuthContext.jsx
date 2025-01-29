@@ -6,10 +6,13 @@ const AuthContext = createContext();
 export const AuthProvider = ({children}) => {
     
     const [errors, setErrors] = useState("");
+    const [success, setSuccess] = useState("");
     const [authData, setAuthData] = useState({
         user: '',
         token: localStorage.getItem('token'),
-        isAuthenticated: localStorage.getItem('token') ? true : false
+        admin_token: localStorage.getItem('admin_token'),
+        isAuthenticated: localStorage.getItem('token') ? true : false,
+        isAdminAuthenticated: localStorage.getItem('admin_token') ? true : false
     });
 
     const register = (data) => {
@@ -28,6 +31,13 @@ export const AuthProvider = ({children}) => {
         })
     }
 
+    const adminlogin = (data) => {
+        setAuthData({
+            admin_token: localStorage.getItem('admin_token'),
+            isAdminAuthenticated: localStorage.getItem('admin_token') ? true : false
+        })
+    }
+
     const logout = (data) => {
         setAuthData({
             user: '',
@@ -36,23 +46,40 @@ export const AuthProvider = ({children}) => {
         })
     }
 
-    // Function to update authentication state (user, token, etc.)
+    const adminlogut = (data) => {
+        setAuthData({
+            admin_token: '',
+            isAdminAuthenticated: false
+        })
+    }
+
+    // function to update authentication state (user, token, etc.)
     const updateAuthData = (data) => {
         setAuthData(data);
     };
 
-    // Function to set errors
+    // function to set errors
     const setAuthErrors = (errorMessages) => {
         setErrors(errorMessages);
     };
 
-    // Function to clear errors
+    // function to clear errors
     const clearAuthErrors = () => {
         setErrors("");
     };
 
+    // function to set success message
+    const setSuccessMsg = (msg) => {
+        setSuccess(msg);
+    }
+
+    // function to clear success message
+    const clearSuccessMsg = () => {
+        setSuccess("");
+    }
+
     return (
-        <AuthContext.Provider value={{ authData, login, register, logout, errors, setAuthErrors, clearAuthErrors }}>
+        <AuthContext.Provider value={{ authData, login, register, logout, adminlogin, adminlogut, errors, setAuthErrors, clearAuthErrors, success, setSuccessMsg, clearSuccessMsg }}>
             {children}
         </AuthContext.Provider>
     )
